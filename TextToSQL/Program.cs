@@ -13,9 +13,12 @@ namespace TextToSQL
         {
             //You should set your database connection string
             string connectionstring = @"Data Source=.\SQLINSTANCE;Initial Catalog=tempdb;integrated security=SSPI;";
+            //This is the schema of the destination table
+            string Schema = "upload";
             //You should set the text files directory
             string directory = @"E:\TextFiles";
-            using (SQLExport sqlExp = new SQLExport(connectionstring, "upload"))
+            
+            using (SQLExport sqlExp = new SQLExport(connectionstring, Schema))
             {
                 //if you don't want to traverse subfolders use System.IO.SearchOption.TopDirectoryOnly
                 foreach (string filename in System.IO.Directory.GetFiles(directory,
