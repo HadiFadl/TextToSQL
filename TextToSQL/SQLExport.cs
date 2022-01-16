@@ -22,7 +22,7 @@ namespace TextToSQL
 
         public string BuildCreateTableQuery(DataTable dt)
         {
-
+            
             string strQuery = "if not exists(select * from information_schema.tables where table_name = '" + dt.TableName +
                 "' and table_schema = '" + SchemaName + "')" +
                 "create table [" + SchemaName + "].[" + dt.TableName + "](";
